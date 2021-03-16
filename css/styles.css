@@ -3,6 +3,18 @@
 /* белый цвет на Кнопке #FFFFFF */
 /* акцент #2196F3 */
 /* вторичный цвет фона #F5F4FA */
+
+/* Рекомендуется всегда подключать */
+/*Стили для box-sizing которые стоит использовать по-умолчанию*/
+html{
+  box-sizing: border-box
+}
+*,
+*::before,
+*::after{
+  box-sizing: inherit;
+}
+/* Переменные */
 :root {
   --primary-text-color: #212121;
   --hero-text-color: #ffffff;
@@ -22,11 +34,34 @@ body {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
+
 }
+/* Стандартный набор стилей для картинок */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  /* Стили для обнуления верхних отступов у элементов */
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+}
+
 /* Списки без стандартных точек */
+/*Класс для обнуления базовых свойств у списков (ul)*/
 .list {
-  list-style: none;
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
 }
+
+/*Класс для обнуления базовых свойств у ссылок*/
+.link {
+	text-decoration: none;
+	color: inherit;
+}
+
 /* визуальное скрытие */
 .visually-hidden {
   position: absolute !important;
@@ -39,6 +74,11 @@ body {
   overflow: hidden;
 }
 
+.container{
+  width: 1200;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* logo */
 .logo {
   text-decoration: none;
@@ -125,7 +165,6 @@ body {
 }
 .feature-list .title {
   font-weight: 700;
-  /*font-size: 14px;*/
   line-height: 1.14;
   text-transform: uppercase;
   color: var(--primary-text-color);
