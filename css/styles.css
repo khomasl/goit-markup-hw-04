@@ -22,10 +22,12 @@ html{
   --secondary-text-color: #757575;
   --accent-color: #2196f3;
   --secondary-bg-color: #f5f4fa;
+  --line-color: #ECECEC;
 }
 
 /* Основное тело страницы */
 body {
+  margin: 0; /*Удаляет стандартный маржин 8пх*/
   background-color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -78,6 +80,7 @@ h1, h2, h3, h4, h5, h6, p {
   width: 1200;
   margin-left: auto;
   margin-right: auto;
+  /*margin: 0 auto;*/ /*альтернатива двум предыдущим записям*/
 }
 /* logo */
 .logo {
@@ -102,23 +105,29 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .site-nav .current,
 .site-nav .link:hover,
-.site-nav .link:focus {
+.site-nav .link:focus,
+.addr-title .link:hover,
+.addr-title .link:focus {
   color: var(--accent-color);
 }
 /* contacts */
 .contact .link {
   color: var(--secondary-text-color);
 }
-
+/* line */
+.line{
+  border: 1px solid var(--line-color);
+}
 /* hero */
 .hero {
+  text-align: center;
   background-color: var(--hero-bg-color);
 }
 .hero-title {
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
-  text-align: center;
+  /*text-align: center;*/
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--hero-text-color);
@@ -130,9 +139,11 @@ h1, h2, h3, h4, h5, h6, p {
   font-size: 16px;
   display: flex;
   align-items: center;
-  text-align: center;
+  /*text-align: center;*/
   color: var(--primary-text-color);
+  /*position: absolute;*/
   border: none;
+  border-radius: 4px;
 }
 .btn:hover,
 .btn:focus {
@@ -208,8 +219,4 @@ h1, h2, h3, h4, h5, h6, p {
 .footer .foot-link {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.6);
-}
-.addr-title .link:hover,
-.addr-title .link:focus {
-  color: var(--accent-color);
 }
