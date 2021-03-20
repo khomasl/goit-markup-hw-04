@@ -4,16 +4,12 @@
 /* акцент #2196F3 */
 /* вторичный цвет фона #F5F4FA */
 
-/* Рекомендуется всегда подключать */
-/*Стили для box-sizing которые стоит использовать по-умолчанию*/
-html{
-  box-sizing: border-box
-}
-*,
-*::before,
-*::after{
-  box-sizing: inherit;
-}
+/* Структура CSS:
+1. Шрифты
+2. Переменные
+3. Теги (базовые настройки и др.)
+4. Классы (общие, ...*/
+
 /* Переменные */
 :root {
   --primary-text-color: #212121;
@@ -22,7 +18,18 @@ html{
   --secondary-text-color: #757575;
   --accent-color: #2196f3;
   --secondary-bg-color: #f5f4fa;
-  --line-color: #ECECEC;
+  --line-color: #ececec;
+  --card-border-color: #eeeeee;
+}
+/* Рекомендуется всегда подключать */
+/*Стили для box-sizing которые стоит использовать по-умолчанию*/
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 /* Основное тело страницы */
@@ -36,32 +43,45 @@ body {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
-
 }
 /* Стандартный набор стилей для картинок */
 img {
-  display: block;
+  display: block; /*чтобы убрать отступ под картинкой ка ынлайновый элем.*/
   max-width: 100%;
   height: auto;
 
   /* Стили для обнуления верхних отступов у элементов */
 }
-h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin-top: 0;
 }
 
 /* Списки без стандартных точек */
 /*Класс для обнуления базовых свойств у списков (ul)*/
 .list {
-	list-style: none;
-	padding-left: 0;
-	margin: 0;
-}
+  display: flex; /*для всех списков делает флех*/
+  /* flex-wrap: wrap; */
 
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/*для всех списков делает маржин*/
+.list-item:not(:last-child) {
+  margin-right: 30px;
+}
 /*Класс для обнуления базовых свойств у ссылок*/
 .link {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* визуальное скрытие */
@@ -76,11 +96,48 @@ h1, h2, h3, h4, h5, h6, p {
   overflow: hidden;
 }
 
-.container{
-  width: 1200;
-  margin-left: auto;
+.container {
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin-right: auto;
+  margin-left: auto;
   /*margin: 0 auto;*/ /*альтернатива двум предыдущим записям*/
+  /* background-color: rgb(154, 177, 130); временно */
+}
+/* Выравнивание в один ряд списка навигации */
+.menu {
+  display: inline-flex;
+}
+/* отступы между эл. списка ссылок, кроме последнего */
+.menu-item:not(:last-child) {
+  margin-right: 50px;
+}
+/*  
+menu .menu-item + menu-item {
+  margin-left: 50px;
+} */
+.site-nav {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line-color);
+}
+/* Выравнивание в один ряд всех эл. хедера (навигации) */
+.site-nav .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* Для увеличения кликабельной области ссылок в хедере  */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+/* Отступ для лого в хедере */
+.site-nav .logo {
+  margin-right: 93px;
 }
 /* logo */
 .logo {
@@ -97,6 +154,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Навигация */
 .site-nav .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   text-decoration: none;
   font-weight: 500;
   line-height: 1.14;
@@ -114,16 +175,27 @@ h1, h2, h3, h4, h5, h6, p {
 .contact .link {
   color: var(--secondary-text-color);
 }
-/* line */
-.line{
-  border: 1px solid var(--line-color);
-}
+
 /* hero */
 .hero {
+  min-height: 100vh;
+  /*min-height: 1600;*/
+  padding-top: 200;
+  padding-bottom: 200;
   text-align: center;
   background-color: var(--hero-bg-color);
 }
+
+/* .hero-content {*/
+/* min-height: 100vh; */
+/* align-items: center; */
+/* display: block;
+  padding-top: auto;
+  padding-bottom: auto;
+} */
 .hero-title {
+  margin-bottom: 30px;
+
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -134,11 +206,13 @@ h1, h2, h3, h4, h5, h6, p {
 }
 /* button */
 .btn {
+  /* display: flex; */
+  align-items: center;
+
   background-color: var(--secondary-bg-color);
   font-family: inherit;
   font-size: 16px;
-  display: flex;
-  align-items: center;
+
   /*text-align: center;*/
   color: var(--primary-text-color);
   /*position: absolute;*/
@@ -155,14 +229,27 @@ h1, h2, h3, h4, h5, h6, p {
   font-weight: 700;
   line-height: 1.87;
   letter-spacing: 0.06em;
+  background-color: var(--accent-color);
+  color: var(--hero-text-color);
 }
 .btn .btn-portfolio {
   font-weight: 500;
   line-height: 1.62;
 }
+.btn-list {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
 
 /* section */
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
 .section-title {
+  margin-bottom: 50px;
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
@@ -174,6 +261,11 @@ h1, h2, h3, h4, h5, h6, p {
 .feature-list {
   color: var(--secondary-text-color);
 }
+/* Задаёт ширину эл. списка Особенностей */
+.feature-list .list-item {
+  width: calc(100% / 12 * 3);
+  /* max-width: 300px; */
+}
 .feature-list .title {
   font-weight: 700;
   line-height: 1.14;
@@ -181,7 +273,14 @@ h1, h2, h3, h4, h5, h6, p {
   color: var(--primary-text-color);
 }
 
+/* .feature-list .menu-item:not(:last-child) {
+  margin-right: 30px;
+} */
+
 /* team */
+.section.team {
+  background-color: var(--secondary-bg-color);
+}
 .team-list {
   font-size: 16px;
   line-height: 1.19;
@@ -191,13 +290,27 @@ h1, h2, h3, h4, h5, h6, p {
   font-weight: 500;
   color: var(--primary-text-color);
 }
+
 /* порфолио карточки*/
 .portfolio-list {
+  flex-wrap: wrap;
+
   font-size: 16px;
   line-height: 1.875;
   color: var(--secondary-text-color);
 }
+
+/* отступы между эл. списка ссылок, кроме последнего */
+.portfolio-list .list-item:nth-child(3n) {
+  margin-right: 0px;
+}
+.portfolio-list .list-item {
+  margin-bottom: 30px;
+  flex-basis: calc((100% - 3 * 30px) / 3);
+  border-bottom: 1px solid var(--card-border-color);
+}
 .portfolio-list .title {
+  margin-bottom: 4px;
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
@@ -219,4 +332,8 @@ h1, h2, h3, h4, h5, h6, p {
 .footer .foot-link {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.addr-title .list {
+  display: inline;
 }
