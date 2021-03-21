@@ -20,6 +20,7 @@
   --secondary-bg-color: #f5f4fa;
   --line-color: #ececec;
   --card-border-color: #eeeeee;
+  --grid-item: 3;
 }
 /* Рекомендуется всегда подключать */
 /*Стили для box-sizing которые стоит использовать по-умолчанию*/
@@ -61,13 +62,13 @@ h6,
 p,
 ul {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Списки без стандартных точек */
 /*Класс для обнуления базовых свойств у списков (ul)*/
 .list {
   display: flex; /*для всех списков делает флех*/
-  /* flex-wrap: wrap; */
 
   list-style: none;
   padding-left: 0;
@@ -103,7 +104,6 @@ ul {
   margin-right: auto;
   margin-left: auto;
   /*margin: 0 auto;*/ /*альтернатива двум предыдущим записям*/
-  /* background-color: rgb(154, 177, 130); временно */
 }
 /* Выравнивание в один ряд списка навигации */
 .menu {
@@ -113,10 +113,7 @@ ul {
 .menu-item:not(:last-child) {
   margin-right: 50px;
 }
-/*  
-menu .menu-item + menu-item {
-  margin-left: 50px;
-} */
+
 .site-nav {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -129,9 +126,9 @@ menu .menu-item + menu-item {
   align-items: center;
 }
 /* Для увеличения кликабельной области ссылок в хедере  */
-
 .navigation {
   display: flex;
+
   align-items: center;
   margin-right: auto;
 }
@@ -155,6 +152,7 @@ menu .menu-item + menu-item {
 /* Навигация */
 .site-nav .link {
   display: block;
+
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -178,44 +176,31 @@ menu .menu-item + menu-item {
 
 /* hero */
 .hero {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   /*min-height: 1600;*/
-  padding-top: 200;
-  padding-bottom: 200;
+  padding-top: 200px;
+  padding-bottom: 280px;
   text-align: center;
   background-color: var(--hero-bg-color);
 }
 
-/* .hero-content {*/
-/* min-height: 100vh; */
-/* align-items: center; */
-/* display: block;
-  padding-top: auto;
-  padding-bottom: auto;
-} */
 .hero-title {
   margin-bottom: 30px;
 
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
-  /*text-align: center;*/
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--hero-text-color);
 }
 /* button */
 .btn {
-  /* display: flex; */
   align-items: center;
-
   background-color: var(--secondary-bg-color);
   font-family: inherit;
   font-size: 16px;
-
-  /*text-align: center;*/
   color: var(--primary-text-color);
-  /*position: absolute;*/
   border: none;
   border-radius: 4px;
 }
@@ -225,7 +210,7 @@ menu .menu-item + menu-item {
   color: var(--hero-text-color);
   cursor: pointer;
 }
-.btn .btn-main {
+.btn.btn-main {
   font-weight: 700;
   line-height: 1.87;
   letter-spacing: 0.06em;
@@ -250,6 +235,7 @@ menu .menu-item + menu-item {
 
 .section-title {
   margin-bottom: 50px;
+
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
@@ -263,19 +249,17 @@ menu .menu-item + menu-item {
 }
 /* Задаёт ширину эл. списка Особенностей */
 .feature-list .list-item {
-  width: calc(100% / 12 * 3);
+  width: calc(100% / 12 * var(--grid-item));
   /* max-width: 300px; */
 }
 .feature-list .title {
+  margin-bottom: 10px;
+
   font-weight: 700;
   line-height: 1.14;
   text-transform: uppercase;
   color: var(--primary-text-color);
 }
-
-/* .feature-list .menu-item:not(:last-child) {
-  margin-right: 30px;
-} */
 
 /* team */
 .section.team {
@@ -290,7 +274,13 @@ menu .menu-item + menu-item {
   font-weight: 500;
   color: var(--primary-text-color);
 }
-
+.team-list .img-title {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.img-title .title {
+  margin-bottom: 10px;
+}
 /* порфолио карточки*/
 .portfolio-list {
   flex-wrap: wrap;
@@ -306,11 +296,18 @@ menu .menu-item + menu-item {
 }
 .portfolio-list .list-item {
   margin-bottom: 30px;
-  flex-basis: calc((100% - 3 * 30px) / 3);
+
+  flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
   border-bottom: 1px solid var(--card-border-color);
 }
-.portfolio-list .title {
+.portfolio-list .card-title {
+  padding: 20px 24px;
+  /* padding-bottom: 20px; */
+}
+.card-title .title {
   margin-bottom: 4px;
+}
+.portfolio-list .title {
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
@@ -322,10 +319,16 @@ menu .menu-item + menu-item {
 .footer {
   background-color: var(--hero-bg-color);
 }
+.footer .container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
 .footer-logo-title {
   color: var(--hero-text-color);
 }
 .footer .addr-title {
+  margin-top: 20px;
+
   color: var(--hero-text-color);
   font-style: normal;
 }
@@ -333,7 +336,9 @@ menu .menu-item + menu-item {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.6);
 }
-
 .addr-title .list {
   display: inline;
+}
+.addr-item:not(:last-child) {
+  margin-bottom: 9px;
 }
