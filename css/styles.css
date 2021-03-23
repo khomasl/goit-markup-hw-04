@@ -115,8 +115,8 @@ ul {
 }
 
 .site-nav {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  /* padding-top: 24px;
+  padding-bottom: 24px; */
   border-bottom: 1px solid var(--line-color);
 }
 /* Выравнивание в один ряд всех эл. хедера (навигации) */
@@ -217,16 +217,19 @@ ul {
   background-color: var(--accent-color);
   color: var(--hero-text-color);
 }
-.btn .btn-portfolio {
+.btn.btn-portfolio {
   font-weight: 500;
   line-height: 1.62;
+  padding: 6px 22px;
 }
 .btn-list {
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
 }
-
+.btn-list .list-item:not(:last-child) {
+  margin-right: 8px;
+}
 /* section */
 .section {
   padding-top: 94px;
@@ -277,6 +280,8 @@ ul {
 .team-list .img-title {
   padding-top: 30px;
   padding-bottom: 30px;
+
+  background-color: var(--hero-text-color);
 }
 .img-title .title {
   margin-bottom: 10px;
@@ -298,11 +303,12 @@ ul {
   margin-bottom: 30px;
 
   flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
-  border-bottom: 1px solid var(--card-border-color);
 }
 .portfolio-list .card-title {
   padding: 20px 24px;
   /* padding-bottom: 20px; */
+  border: 1px solid var(--card-border-color);
+  border-top: none;
 }
 .card-title .title {
   margin-bottom: 4px;
@@ -319,7 +325,7 @@ ul {
 .footer {
   background-color: var(--hero-bg-color);
 }
-.footer .container {
+.footer.section {
   padding-top: 60px;
   padding-bottom: 60px;
 }
@@ -340,5 +346,5 @@ ul {
   display: inline;
 }
 .addr-item:not(:last-child) {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
