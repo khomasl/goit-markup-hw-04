@@ -177,7 +177,7 @@ ul {
 /* hero */
 .hero {
   /* min-height: 100vh; */
-  max-weigth: 1600;
+  max-width: 1600;
   padding-top: 200px;
   padding-bottom: 280px;
   text-align: center;
