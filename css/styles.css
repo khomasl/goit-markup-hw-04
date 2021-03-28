@@ -395,6 +395,7 @@ flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
 
 /* порфолио карточки*/
 .portfolio-list {
+  display: flex;
   flex-wrap: wrap;
 
   font-size: 16px;
@@ -413,7 +414,7 @@ flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
 }
 /* тень при ховере */
 .portfolio-list .list-item:hover,
-.portfolio-list .list-item:focus {
+.portfolio-list .list-item:focus{
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .portfolio-list .card-title {
@@ -446,9 +447,13 @@ flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
 .footer .container{
   display: flex;
 }
-.footer .addr{
-  margin-right: 70px;
+.footer .conteiner{
+  flex-wrap: wrap;
+  --grid-item: 2;
+}
 
+.footer .addr{
+  width: calc(100% / 12 * var(--grid-item));
 }
 .footer-logo-title {
   color: var(--hero-text-color);
@@ -471,6 +476,7 @@ flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
 }
 .footer .social-links {
   margin-top: 12px;
+  width: calc(100% / 12 * var(--grid-item));
 }
 .social-links .section-title {
   margin-bottom: 20px;
