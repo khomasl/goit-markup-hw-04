@@ -413,8 +413,8 @@ flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
   flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
 }
 /* тень при ховере */
-.portfolio-list .list-item .link:hover,
-.portfolio-list .list-item .link:focus{
+.portfolio-list .list-item:hover,
+.portfolio-list .list-item .link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .portfolio-list .card-title {
