@@ -499,3 +499,4 @@ flex-basis: calc((100% - 30px * (var(--grid-item) - 1)) / var(--grid-item));
 .footer .social-icons-link:hover,
 .footer .social-icons-link:focus {
   background-color: var(--accent-color);
+}
